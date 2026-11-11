@@ -1,27 +1,9 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { business } from "@/lib/business";
 import { heroImage } from "@/lib/work";
 import { Button } from "@/components/ui/button";
 
 export function HomeHero() {
-  const reduce = useReducedMotion();
-
-  function item(delay: number) {
-    return {
-      initial: { opacity: 0, y: 22 },
-      animate: { opacity: 1, y: 0 },
-      transition: {
-        duration: reduce ? 0 : 0.75,
-        ease: [0.22, 1, 0.36, 1] as const,
-        delay: reduce ? 0 : delay,
-      },
-    };
-  }
-
   return (
     <section className="relative min-h-[88vh] overflow-hidden bg-secondary">
       <div className="absolute inset-0">
@@ -30,6 +12,8 @@ export function HomeHero() {
           alt={heroImage.alt}
           fill
           priority
+          fetchPriority="high"
+          quality={65}
           className="object-cover motion-safe:animate-ken-burns"
           sizes="100vw"
         />
@@ -38,41 +22,26 @@ export function HomeHero() {
       </div>
 
       <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-center px-4 py-20">
-        <motion.p
-          className="font-[family-name:var(--font-script)] text-4xl text-gold-dark md:text-5xl"
-          {...item(0.05)}
-        >
+        <p className="animate-fade-up font-[family-name:var(--font-script)] text-4xl text-gold-dark md:text-5xl">
           {business.shortName}
-        </motion.p>
-        <motion.p
-          className="mt-2 text-sm uppercase tracking-[0.28em] text-muted-foreground"
-          {...item(0.18)}
-        >
+        </p>
+        <p className="animate-fade-up-delay mt-2 text-sm uppercase tracking-[0.28em] text-muted-foreground">
           Cleaning Service
-        </motion.p>
-        <motion.h1
-          className="mt-6 max-w-3xl font-heading text-4xl leading-tight text-ink md:text-6xl"
-          {...item(0.3)}
-        >
+        </p>
+        <h1 className="animate-fade-up-delay-2 mt-6 max-w-3xl font-heading text-4xl leading-tight text-ink md:text-6xl">
           Residential & Commercial Cleaning in {business.primaryGeoPhrase}
-        </motion.h1>
-        <motion.p
-          className="mt-5 max-w-xl text-lg text-muted-foreground"
-          {...item(0.42)}
-        >
+        </h1>
+        <p className="animate-fade-up-delay-3 mt-5 max-w-xl text-lg text-muted-foreground">
           {business.tagline} Detailed, personalized cleaning for homes, Airbnbs,
           and offices across Middle Tennessee.
-        </motion.p>
-        <motion.div
-          className="mt-8 flex flex-col gap-3 sm:flex-row"
-          {...item(0.54)}
-        >
+        </p>
+        <div className="animate-fade-up-delay-4 mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             asChild
             size="lg"
             className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_12px_36px_-14px_rgba(197,163,90,0.95)]"
           >
-            <Link href="/quote">Request a Quote</Link>
+            <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
           </Button>
           <Button
             asChild
@@ -80,9 +49,9 @@ export function HomeHero() {
             variant="outline"
             className="border-gold/40 bg-cream/70 text-ink backdrop-blur-sm transition hover:border-gold hover:bg-cream"
           >
-            <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+            <a href={business.smsHref}>Text Us</a>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

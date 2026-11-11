@@ -13,15 +13,15 @@ export type GalleryImage = {
 
 export const beforeAfterPairs: BeforeAfterPair[] = [
   {
-    id: "toilet",
-    label: "Bathroom",
+    id: "oven",
+    label: "Oven",
     before: {
-      src: "/work/toilet-before.jpg",
-      alt: "Toilet before professional cleaning",
+      src: "/work/oven-before.jpg",
+      alt: "Oven interior before deep cleaning",
     },
     after: {
-      src: "/work/toilet-after.jpg",
-      alt: "Toilet after Grace Living deep clean",
+      src: "/work/oven-after.jpg",
+      alt: "Oven interior after professional cleaning",
     },
   },
   {
@@ -49,15 +49,15 @@ export const beforeAfterPairs: BeforeAfterPair[] = [
     },
   },
   {
-    id: "oven",
-    label: "Oven",
+    id: "toilet",
+    label: "Bathroom",
     before: {
-      src: "/work/oven-before.jpg",
-      alt: "Oven interior before deep cleaning",
+      src: "/work/toilet-before.jpg",
+      alt: "Toilet before professional cleaning",
     },
     after: {
-      src: "/work/oven-after.jpg",
-      alt: "Oven interior after professional cleaning",
+      src: "/work/toilet-after.jpg",
+      alt: "Toilet after Grace Living deep clean",
     },
   },
 ];

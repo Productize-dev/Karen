@@ -28,7 +28,7 @@ export const services: ServiceRecord[] = [
     shortName: "Residential",
     category: "residential",
     metaTitle: `Residential Cleaning ${business.address.state} | ${business.shortName}`,
-    metaDescription: `Detailed residential cleaning in ${region}. Personalized house cleaning you can trust. Request a custom quote — call ${business.phoneDisplay}.`,
+    metaDescription: `Detailed residential cleaning in ${region}. Personalized house cleaning you can trust. Call ${business.phoneDisplay} for a custom quote.`,
     h1: `Residential Cleaning in ${region}`,
     intro: `${business.legalName} provides detailed, personalized residential cleaning across ${business.serviceRegion}. From kitchens and bathrooms to living spaces and bedrooms, we help families enjoy clean, organized, and welcoming homes.`,
     includes: [
@@ -165,7 +165,7 @@ export const services: ServiceRecord[] = [
       {
         question: "Can you work around same-day turnovers?",
         answer:
-          "When availability allows, yes. Share your check-out and check-in windows when requesting a quote so we can plan the right schedule.",
+          "When availability allows, yes. Share your check-out and check-in windows when you call so we can plan the right schedule.",
       },
       {
         question: "Do you follow a host checklist?",
@@ -279,7 +279,7 @@ export const services: ServiceRecord[] = [
       {
         question: "What types of commercial spaces do you clean?",
         answer:
-          "We focus on offices and light commercial spaces. Share your property type and needs when requesting a quote and we'll confirm fit and scope.",
+          "We focus on offices and light commercial spaces. Share your property type and needs when you call and we'll confirm fit and scope.",
       },
       {
         question: "Is commercial cleaning available on a recurring schedule?",

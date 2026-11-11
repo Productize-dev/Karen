@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { CtaBand } from "@/components/cta-band";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -70,10 +69,10 @@ export default function AboutPage() {
                 asChild
                 className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
               >
-                <Link href="/quote">Request a Quote</Link>
+                <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
               </Button>
               <Button asChild variant="outline">
-                <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+                <a href={business.smsHref}>Text Us</a>
               </Button>
             </div>
           </Reveal>
@@ -111,7 +110,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="Let’s care for your space"
-        subtitle="Call, text, or request a personalized quote today."
+        subtitle={`Call ${business.phoneDisplay} to book today.`}
       />
     </>
   );

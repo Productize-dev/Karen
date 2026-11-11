@@ -1,69 +1,31 @@
-"use client";
-
-import { motion, useReducedMotion, type HTMLMotionProps } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 export function Stagger({
   children,
   className,
   delay = 0,
-  ...props
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
-} & Omit<HTMLMotionProps<"div">, "children">) {
-  const reduce = useReducedMotion();
-
+}) {
   return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: reduce ? 0 : 0.1,
-            delayChildren: reduce ? 0 : delay + 0.08,
-          },
-        },
-      }}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-8% 0px" }}
-      {...props}
+    <div
+      className={cn("stagger-on-view", className)}
+      style={{ "--stagger-delay": `${delay}s` } as CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
 export function StaggerItem({
   children,
   className,
-  ...props
 }: {
   children: ReactNode;
   className?: string;
-} & Omit<HTMLMotionProps<"div">, "children">) {
-  const reduce = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y: 22 },
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: reduce ? 0 : 0.55,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        },
-      }}
-      {...props}
-    >
-      {children}
-    </motion.div>
-  );
+}) {
+  return <div className={cn("stagger-item", className)}>{children}</div>;
 }

@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Menu, Phone, X } from "lucide-react";
 import { business } from "@/lib/business";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -14,14 +12,63 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
-  { href: "/quote", label: "Get a Quote" },
 ];
+
+function PhoneIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function MenuIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M4 5h16M4 12h16M4 19h16" />
+    </svg>
+  );
+}
+
+function CloseIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M18 6 6 18M6 6l12 12" />
+    </svg>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -47,7 +94,7 @@ export function SiteHeader() {
             href={business.phoneHref}
             className="inline-flex items-center gap-2 transition hover:text-gold-dark"
           >
-            <Phone className="size-3.5 text-gold" />
+            <PhoneIcon className="size-3.5 text-gold" />
             {business.phoneDisplay}
           </a>
           <p className="hidden text-muted-foreground sm:block">
@@ -94,9 +141,9 @@ export function SiteHeader() {
             src={business.logoPath}
             alt={business.legalName}
             width={220}
-            height={80}
+            height={146}
             className="h-11 w-auto object-contain sm:h-12 md:h-14"
-            priority
+            sizes="(max-width: 640px) 120px, 160px"
           />
           <span className="sr-only">{business.legalName}</span>
         </Link>
@@ -139,73 +186,45 @@ export function SiteHeader() {
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={open ? "close" : "open"}
-              initial={{ opacity: 0, rotate: -40, scale: 0.8 }}
-              animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, rotate: 40, scale: 0.8 }}
-              transition={{ duration: reduce ? 0 : 0.2 }}
-              className="inline-flex"
-            >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
-            </motion.span>
-          </AnimatePresence>
+          {open ? <CloseIcon className="size-5" /> : <MenuIcon className="size-5" />}
         </button>
       </div>
 
-      <AnimatePresence initial={false}>
-        {open ? (
-          <motion.div
-            key="mobile-nav"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              duration: reduce ? 0 : 0.28,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="overflow-hidden border-t border-border bg-cream md:hidden"
-          >
-            <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
-              {nav.map((item, index) => {
-                const active =
-                  pathname === item.href ||
-                  pathname.startsWith(`${item.href}/`);
-                return (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: reduce ? 0 : 0.04 * index,
-                      duration: reduce ? 0 : 0.25,
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "block rounded-md px-3 py-2.5 text-sm font-medium transition hover:bg-secondary",
-                        active && "bg-secondary text-gold-dark"
-                      )}
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-              <a
-                href={business.phoneHref}
-                className="mt-2 rounded-md bg-gold-gradient px-3 py-2.5 text-center text-sm font-semibold text-ink transition hover:opacity-90"
-                onClick={() => setOpen(false)}
-              >
-                Call {business.phoneDisplay}
-              </a>
-            </nav>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      <div
+        className={cn(
+          "grid overflow-hidden border-t border-border bg-cream transition-[grid-template-rows] duration-300 ease-out md:hidden",
+          open ? "grid-rows-[1fr] border-t" : "grid-rows-[0fr] border-t-0"
+        )}
+      >
+        <nav className="min-h-0">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
+            {nav.map((item) => {
+              const active =
+                pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "block rounded-md px-3 py-2.5 text-sm font-medium transition hover:bg-secondary",
+                    active && "bg-secondary text-gold-dark"
+                  )}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <a
+              href={business.phoneHref}
+              className="mt-2 rounded-md bg-gold-gradient px-3 py-2.5 text-center text-sm font-semibold text-ink transition hover:opacity-90"
+              onClick={() => setOpen(false)}
+            >
+              Call {business.phoneDisplay}
+            </a>
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }

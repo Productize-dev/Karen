@@ -87,10 +87,10 @@ export default async function ServiceDetailPage({
               asChild
               className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
             >
-              <Link href="/quote">Request a Quote</Link>
+              <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
             </Button>
             <Button asChild variant="outline">
-              <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+              <a href={business.smsHref}>Text Us</a>
             </Button>
           </div>
           <GoldRule className="mt-10 mb-10 w-24" delay={0.1} />
@@ -173,7 +173,7 @@ export default async function ServiceDetailPage({
 
       <CtaBand
         title={`Ready to book ${service.shortName.toLowerCase()}?`}
-        subtitle={`Call ${business.phoneDisplay} or request a personalized quote online.`}
+        subtitle={`Call ${business.phoneDisplay} to book.`}
       />
     </>
   );

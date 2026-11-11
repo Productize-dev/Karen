@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { galleryImages } from "@/lib/work";
 import { GoldRule, Reveal, Stagger, StaggerItem } from "@/components/motion";
@@ -27,12 +25,16 @@ export function WorkGallery() {
           {galleryImages.map((image) => (
             <StaggerItem
               key={image.src}
-              className={cn("relative overflow-hidden border border-border", image.className)}
+              className={cn(
+                "relative overflow-hidden border border-border",
+                image.className
+              )}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
+                loading="lazy"
                 className="object-cover transition duration-700 ease-out hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 25vw"
               />

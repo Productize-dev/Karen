@@ -25,13 +25,13 @@ export const business = {
   serviceRegion: "Franklin, Thompson's Station, Murfreesboro, Nashville and nearby Middle Tennessee communities",
   hoursLabel: "By appointment, subject to availability",
   hoursSchema: "ByAppointmentOnly",
-  bookingMethods: ["phone", "text", "quote form"] as const,
+  bookingMethods: ["phone", "text"] as const,
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100076133720244",
     google: "https://share.google/cRArUdt0DC0neycwT",
     instagram: "",
   },
-  logoPath: "/brand/logo.jpg",
+  logoPath: "/brand/logo.webp",
   description:
     "Professional residential and commercial cleaning company offering detailed, personalized cleaning services in Nashville and surrounding Middle Tennessee communities.",
   story:
@@ -54,7 +54,7 @@ export const homeFaqs = [
   {
     question: "How do I get a price for cleaning?",
     answer:
-      "We provide personalized quotes. Pricing depends on the size of your property, its condition, and the services you need. Call, text, or submit our online quote form and we'll follow up promptly.",
+      "We provide personalized quotes. Pricing depends on the size of your property, its condition, and the services you need. Call or text us and we'll follow up promptly.",
   },
   {
     question: "What areas do you serve?",
@@ -63,7 +63,7 @@ export const homeFaqs = [
   {
     question: "How do I book a cleaning?",
     answer:
-      "You can book by phone call, text message, or by submitting the quote request form on our website. Appointments are subject to availability.",
+      "You can book by phone call or text message. Appointments are subject to availability.",
   },
   {
     question: "What services do you offer most often?",

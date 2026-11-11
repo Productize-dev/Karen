@@ -149,6 +149,28 @@
   }
 }
 
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gold-rule-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
 @keyframes soft-shine {
   0%,
   100% {
@@ -160,19 +182,79 @@
 }
 
 @utility animate-fade-up {
-  animation: fade-up 0.7s ease-out both;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @utility animate-fade-up-delay {
-  animation: fade-up 0.7s ease-out 0.15s both;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
 @utility animate-fade-up-delay-2 {
-  animation: fade-up 0.7s ease-out 0.3s both;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@utility animate-fade-up-delay-3 {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+}
+
+@utility animate-fade-up-delay-4 {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.54s both;
 }
 
 @utility animate-shine {
   animation: soft-shine 3.5s ease-in-out infinite;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-on-view {
+      animation: reveal-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+      animation-delay: var(--reveal-delay, 0s);
+    }
+
+    .gold-rule-on-view {
+      animation: gold-rule-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+      animation-delay: var(--reveal-delay, 0s);
+    }
+
+    .stagger-on-view > .stagger-item {
+      animation: reveal-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+
+    .stagger-on-view > .stagger-item:nth-child(1) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.08s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(2) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.18s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(3) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.28s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(4) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.38s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(5) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.48s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(6) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.58s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(7) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.68s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(8) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.78s);
+    }
+    .stagger-on-view > .stagger-item:nth-child(n + 9) {
+      animation-delay: calc(var(--stagger-delay, 0s) + 0.88s);
+    }
+  }
 }
 
 @keyframes ken-burns {
@@ -230,7 +312,12 @@
   .animate-shine,
   .animate-fade-up,
   .animate-fade-up-delay,
-  .animate-fade-up-delay-2 {
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4,
+  .reveal-on-view,
+  .gold-rule-on-view,
+  .stagger-on-view > .stagger-item {
     animation: none !important;
   }
 }

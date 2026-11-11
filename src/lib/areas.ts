@@ -82,7 +82,7 @@ const overrides: Record<string, AreaOverride> = {
   Brentwood: {
     intro: `Brentwood homeowners choose ${business.legalName} for discreet, detail-oriented residential cleaning — including deep cleans and recurring maintenance that protect beautiful spaces.`,
     extra:
-      "From larger homes to busy family schedules, Brentwood clients appreciate clear communication and a customized scope. Request a quote and we’ll tailor the visit to your property’s size and condition.",
+      "From larger homes to busy family schedules, Brentwood clients appreciate clear communication and a customized scope. Call us and we’ll tailor the visit to your property’s size and condition.",
   },
   "Thompson's Station": {
     intro: `${business.legalName} proudly serves Thompson's Station with residential cleaning, deep cleans, recurring plans, and move-related services for growing Williamson County households.`,
@@ -97,7 +97,7 @@ const overrides: Record<string, AreaOverride> = {
   Smyrna: {
     intro: `${business.legalName} offers residential and light commercial cleaning in Smyrna, with flexible scheduling for busy Rutherford County households and offices.`,
     extra:
-      "Smyrna clients often request recurring cleaning and Airbnb or rental turnovers. Share your property details and preferred cadence when you request a quote.",
+      "Smyrna clients often request recurring cleaning and Airbnb or rental turnovers. Share your property details and preferred cadence when you call.",
   },
 };
 

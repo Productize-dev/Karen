@@ -78,6 +78,7 @@ function Slider({ pair }: { pair: BeforeAfterPair }) {
         src={pair.after.src}
         alt={pair.after.alt}
         fill
+        loading="lazy"
         className="object-cover"
         sizes="(max-width: 768px) 100vw, 900px"
       />
@@ -90,6 +91,7 @@ function Slider({ pair }: { pair: BeforeAfterPair }) {
           src={pair.before.src}
           alt={pair.before.alt}
           fill
+          loading="lazy"
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 900px"
         />

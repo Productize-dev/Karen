@@ -11,19 +11,25 @@ import "./globals.css";
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const greatVibes = Great_Vibes({
   variable: "--font-great-vibes",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {

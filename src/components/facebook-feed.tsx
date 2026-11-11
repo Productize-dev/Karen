@@ -1,7 +1,6 @@
-"use client";
-
 import { business } from "@/lib/business";
 import { facebookPosts } from "@/lib/work";
+import { DeferredIframe } from "@/components/deferred-iframe";
 import { GoldRule, Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { Button } from "@/components/ui/button";
 
@@ -28,17 +27,10 @@ export function FacebookFeed() {
             return (
               <StaggerItem key={post.href}>
                 <div className="overflow-hidden border border-border bg-card p-2 shadow-[0_16px_40px_-32px_rgba(154,123,60,0.45)]">
-                  <iframe
+                  <DeferredIframe
                     src={src}
                     title="Grace Living Facebook post"
-                    width="100%"
                     height={post.height}
-                    style={{ border: "none", overflow: "hidden" }}
-                    scrolling="no"
-                    frameBorder={0}
-                    allowFullScreen
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    loading="lazy"
                     className="mx-auto max-w-full"
                   />
                 </div>

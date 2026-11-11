@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle2, HeartHandshake, Sparkles, ShieldCheck, Star } from "lucide-react";
-import { BeforeAfterSection } from "@/components/before-after";
+import { CheckCircle2, HeartHandshake, Sparkles, ShieldCheck } from "lucide-react";
+import dynamic from "next/dynamic";
 import { CtaBand } from "@/components/cta-band";
 import { FacebookFeed } from "@/components/facebook-feed";
 import { FaqSection } from "@/components/faq-section";
@@ -12,6 +12,21 @@ import { AreaLinks } from "@/components/area-links";
 import { WorkGallery } from "@/components/work-gallery";
 import { Button } from "@/components/ui/button";
 import { CountUp, GoldRule, Reveal, Stagger, StaggerItem } from "@/components/motion";
+
+const BeforeAfterSection = dynamic(
+  () =>
+    import("@/components/before-after").then((mod) => mod.BeforeAfterSection),
+  {
+    loading: () => (
+      <section className="bg-cream py-16 md:py-24" aria-hidden>
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mx-auto mb-10 h-28 max-w-2xl rounded-md bg-secondary/60" />
+          <div className="aspect-[4/3] rounded-md bg-secondary/40" />
+        </div>
+      </section>
+    ),
+  }
+);
 import {
   business,
   homeFaqs,
@@ -25,14 +40,14 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: `Residential & Commercial Cleaning in ${business.primaryGeoPhrase} | ${business.shortName}`,
-  description: `${business.description} Call ${business.phoneDisplay} or request a personalized quote.`,
+  description: `${business.description} Call ${business.phoneDisplay} to book.`,
   path: "/",
 });
 
 const processSteps = [
   {
-    title: "Request a quote",
-    body: "Call, text, or use our online form. Share your property size, condition, and the services you need.",
+    title: "Call us",
+    body: "Call or text to share your property size, condition, and the services you need.",
   },
   {
     title: "Personalized plan",
@@ -146,6 +161,7 @@ export default function HomePage() {
               src={teamImage.src}
               alt={teamImage.alt}
               fill
+              loading="lazy"
               className="object-cover transition duration-[1.2s] ease-out hover:scale-105"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -264,10 +280,11 @@ export default function HomePage() {
                   >
                     “
                   </span>
-                  <div className="mb-3 flex gap-0.5 text-gold">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-3.5 fill-current" />
-                    ))}
+                  <div
+                    className="mb-3 text-sm tracking-widest text-gold"
+                    aria-label="5 out of 5 stars"
+                  >
+                    ★★★★★
                   </div>
                   <p className="text-sm leading-relaxed text-ink/90">
                     {item.quote}

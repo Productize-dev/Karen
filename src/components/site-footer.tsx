@@ -15,8 +15,10 @@ export function SiteFooter() {
             src={business.logoPath}
             alt={business.legalName}
             width={220}
-            height={80}
+            height={146}
             className="mb-4 h-14 w-auto rounded-sm bg-cream object-contain p-1.5"
+            sizes="160px"
+            loading="lazy"
           />
           <p className="mt-2 text-sm text-muted-foreground">{business.tagline}</p>
           <p className="mt-4 text-sm text-muted-foreground">
@@ -122,14 +124,6 @@ export function SiteFooter() {
               {business.address.city}, {business.address.state}
             </li>
             <li>{business.hoursLabel}</li>
-            <li>
-              <Link
-                href="/quote"
-                className="link-underline text-gold-dark transition hover:link-underline-hover"
-              >
-                Request a custom quote
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
