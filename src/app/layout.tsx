@@ -1,0 +1,59 @@
+import type { Metadata } from "next";
+import { Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { JsonLd } from "@/components/json-ld";
+import { business, siteConfig } from "@/lib/business";
+import { localBusinessSchema, websiteSchema } from "@/lib/schema";
+import { createMetadata } from "@/lib/seo";
+import "./globals.css";
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+export const metadata: Metadata = {
+  ...createMetadata({
+    title: `Residential & Commercial Cleaning in ${business.primaryGeoPhrase} | ${business.shortName}`,
+    description: `${business.description} Call ${business.phoneDisplay} for a personalized quote.`,
+    path: "/",
+  }),
+  metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/icon.png",
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${cormorant.variable} ${greatVibes.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col bg-cream text-ink">
+        <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
+      </body>
+    </html>
+  );
+}
