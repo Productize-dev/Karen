@@ -96,6 +96,14 @@ export function SiteFooter() {
                 {business.email}
               </a>
             </li>
+            <li>
+              <Link
+                href="/quote"
+                className="link-underline text-gold-dark transition hover:link-underline-hover"
+              >
+                Request a custom quote
+              </Link>
+            </li>
             {business.social.facebook ? (
               <li>
                 <a

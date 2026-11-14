@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { business } from "@/lib/business";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion";
 
 export function CtaBand({
   title = "Ready for a cleaner space?",
-  subtitle = `Call ${business.phoneDisplay} to book — serving ${business.primaryGeoPhrase}.`,
+  subtitle = `Call, text, or request a personalized quote — serving ${business.primaryGeoPhrase}.`,
 }: {
   title?: string;
   subtitle?: string;
@@ -29,13 +30,21 @@ export function CtaBand({
             size="lg"
             className="min-w-44 bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_12px_36px_-14px_rgba(197,163,90,0.95)]"
           >
-            <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+            <Link href="/quote">Request a Quote</Link>
           </Button>
           <Button
             asChild
             size="lg"
             variant="outline"
             className="min-w-44 border-gold/40 bg-cream/80 text-ink transition hover:border-gold hover:bg-cream"
+          >
+            <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="ghost"
+            className="min-w-44 text-gold-dark transition hover:bg-cream/80 hover:text-gold-dark"
           >
             <a href={business.smsHref}>Text Us</a>
           </Button>

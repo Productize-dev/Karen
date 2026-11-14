@@ -99,10 +99,10 @@ export default async function AreaDetailPage({
               asChild
               className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
             >
-              <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+              <Link href="/quote">Request a Quote</Link>
             </Button>
             <Button asChild variant="outline">
-              <a href={business.smsHref}>Text Us</a>
+              <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
             </Button>
           </div>
           <GoldRule className="mt-10 mb-10 w-24" delay={0.1} />

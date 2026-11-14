@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CtaBand } from "@/components/cta-band";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -69,10 +70,10 @@ export default function AboutPage() {
                 asChild
                 className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
               >
-                <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+                <Link href="/quote">Request a Quote</Link>
               </Button>
               <Button asChild variant="outline">
-                <a href={business.smsHref}>Text Us</a>
+                <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
               </Button>
             </div>
           </Reveal>

@@ -12,6 +12,7 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
+  { href: "/quote", label: "Get a Quote" },
 ];
 
 function PhoneIcon({ className }: { className?: string }) {
@@ -175,7 +176,7 @@ export function SiteHeader() {
             asChild
             className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_8px_24px_-12px_rgba(197,163,90,0.9)]"
           >
-            <a href={business.phoneHref}>Call Now</a>
+            <Link href="/quote">Get a Quote</Link>
           </Button>
         </nav>
 
@@ -215,13 +216,13 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-            <a
-              href={business.phoneHref}
+            <Link
+              href="/quote"
               className="mt-2 rounded-md bg-gold-gradient px-3 py-2.5 text-center text-sm font-semibold text-ink transition hover:opacity-90"
               onClick={() => setOpen(false)}
             >
-              Call {business.phoneDisplay}
-            </a>
+              Get a Quote
+            </Link>
           </div>
         </nav>
       </div>

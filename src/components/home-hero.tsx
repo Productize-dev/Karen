@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { business } from "@/lib/business";
 import { heroImage } from "@/lib/work";
 import { Button } from "@/components/ui/button";
@@ -41,7 +42,7 @@ export function HomeHero() {
             size="lg"
             className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_12px_36px_-14px_rgba(197,163,90,0.95)]"
           >
-            <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
+            <Link href="/quote">Request a Quote</Link>
           </Button>
           <Button
             asChild
@@ -49,7 +50,7 @@ export function HomeHero() {
             variant="outline"
             className="border-gold/40 bg-cream/70 text-ink backdrop-blur-sm transition hover:border-gold hover:bg-cream"
           >
-            <a href={business.smsHref}>Text Us</a>
+            <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
           </Button>
         </div>
       </div>

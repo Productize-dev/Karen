@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/services"), lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: absoluteUrl("/areas"), lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: absoluteUrl("/about"), lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: absoluteUrl("/quote"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
