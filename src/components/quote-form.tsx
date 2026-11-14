@@ -25,32 +25,56 @@ const propertyTypes = [
 export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError(null);
+    setSubmitting(true);
+
     const form = event.currentTarget;
     const data = new FormData(form);
-    const lines = [
-      `New quote request from ${data.get("name")}`,
-      `Phone: ${data.get("phone")}`,
-      `Email: ${data.get("email")}`,
-      `City: ${data.get("city")}`,
-      `Property type: ${data.get("propertyType")}`,
-      `Size / beds-baths: ${data.get("size")}`,
-      `Service: ${data.get("service")}`,
-      `Frequency: ${data.get("frequency")}`,
-      `Notes: ${data.get("notes") || "—"}`,
-    ];
-    const subject = encodeURIComponent(
-      `Quote request — ${data.get("name")} (${data.get("city")})`
-    );
-    const body = encodeURIComponent(lines.join("\n"));
-    setSubmitting(true);
-    window.setTimeout(() => {
-      window.location.href = `${business.emailHref}?subject=${subject}&body=${body}`;
-      setSubmitting(false);
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          phone: data.get("phone"),
+          email: data.get("email"),
+          city: data.get("city"),
+          propertyType: data.get("propertyType"),
+          size: data.get("size"),
+          service: data.get("service"),
+          frequency: data.get("frequency"),
+          notes: data.get("notes"),
+          website: data.get("website"),
+        }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+
+      if (!response.ok) {
+        throw new Error(
+          payload?.error ||
+            "Unable to send your request right now. Please call or text us."
+        );
+      }
+
       setSubmitted(true);
-    }, 450);
+      form.reset();
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -59,7 +83,8 @@ export function QuoteForm() {
         <CheckCircle2 className="mx-auto size-10 text-gold" />
         <h2 className="mt-4 font-heading text-2xl text-ink">Thank you</h2>
         <p className="mt-3 text-muted-foreground">
-          Your email draft should open shortly. If it doesn&apos;t, call or text{" "}
+          Your quote request was sent. We&apos;ll follow up soon. Need faster
+          help? Call or text{" "}
           <a href={business.phoneHref} className="font-medium text-gold-dark">
             {business.phoneDisplay}
           </a>
@@ -74,6 +99,16 @@ export function QuoteForm() {
       onSubmit={handleSubmit}
       className="animate-fade-up space-y-5 border border-border bg-card p-6 shadow-[0_20px_50px_-40px_rgba(10,10,10,0.35)] md:p-8"
     >
+      {/* Honeypot — leave empty */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
+
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Full name" name="name" required />
         <Field label="Phone" name="phone" type="tel" required />
@@ -154,6 +189,14 @@ export function QuoteForm() {
         />
       </div>
       <p className="text-sm text-muted-foreground">{business.pricingNote}</p>
+      {error ? (
+        <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
+          {error}{" "}
+          <a href={business.phoneHref} className="font-medium underline">
+            Call {business.phoneDisplay}
+          </a>
+        </p>
+      ) : null}
       <Button
         type="submit"
         size="lg"
@@ -163,7 +206,7 @@ export function QuoteForm() {
         {submitting ? (
           <span className="inline-flex items-center gap-2">
             <Loader2 className="size-4 animate-spin" />
-            Preparing email…
+            Sending request…
           </span>
         ) : (
           "Request personalized quote"
