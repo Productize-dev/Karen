@@ -51,7 +51,7 @@ export function ServiceCards({
               <div className="mb-4 inline-flex size-11 items-center justify-center rounded-full bg-secondary text-gold-dark transition duration-300 group-hover:-translate-y-0.5 group-hover:bg-gold/15 group-hover:text-gold-dark">
                 <Icon className="size-5 transition duration-300 group-hover:scale-110" />
               </div>
-              <h3 className="font-heading text-xl text-ink transition group-hover:text-gold-dark">
+              <h3 className="font-heading text-xl text-ink transition group-hover:text-gold-dark md:text-2xl">
                 {service.name}
               </h3>
               <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">

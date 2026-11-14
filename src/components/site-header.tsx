@@ -142,8 +142,8 @@ export function SiteHeader() {
             alt={business.legalName}
             width={220}
             height={146}
-            className="h-11 w-auto object-contain sm:h-12 md:h-14"
-            sizes="(max-width: 640px) 120px, 160px"
+            className="h-12 w-auto object-contain sm:h-14 md:h-16"
+            sizes="(max-width: 640px) 140px, 180px"
           />
           <span className="sr-only">{business.legalName}</span>
         </Link>
@@ -157,7 +157,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "group relative text-sm font-medium tracking-wide transition",
+                  "group relative text-base font-medium tracking-wide transition",
                   active ? "text-ink" : "text-ink/80 hover:text-ink"
                 )}
               >

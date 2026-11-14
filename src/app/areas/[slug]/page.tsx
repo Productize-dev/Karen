@@ -76,7 +76,7 @@ export default async function AreaDetailPage({
             {city.county}
             {city.isHq ? " · Home base" : ""}
           </p>
-          <h1 className="mt-3 max-w-4xl font-heading text-4xl text-ink md:text-5xl">
+          <h1 className="mt-3 max-w-4xl font-heading text-4xl text-ink md:text-5xl lg:text-6xl">
             {h1}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">

@@ -16,8 +16,8 @@ export function SiteFooter() {
             alt={business.legalName}
             width={220}
             height={146}
-            className="mb-4 h-14 w-auto rounded-sm bg-cream object-contain p-1.5"
-            sizes="160px"
+            className="mb-4 h-16 w-auto rounded-sm bg-cream object-contain p-1.5"
+            sizes="180px"
             loading="lazy"
           />
           <p className="mt-2 text-sm text-muted-foreground">{business.tagline}</p>

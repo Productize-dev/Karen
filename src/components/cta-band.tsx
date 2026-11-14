@@ -16,13 +16,13 @@ export function CtaBand({
         <div className="absolute -left-10 bottom-0 h-56 w-56 rounded-full bg-gold-light/40 blur-3xl motion-safe:animate-shine" />
       </div>
       <Reveal className="relative mx-auto max-w-4xl px-4 text-center">
-        <p className="font-[family-name:var(--font-script)] text-3xl text-gold-dark md:text-4xl">
+        <p className="font-[family-name:var(--font-script)] text-4xl text-gold-dark md:text-5xl">
           {business.shortName}
         </p>
-        <h2 className="mt-3 font-heading text-3xl text-ink md:text-5xl">
+        <h2 className="mt-3 font-heading text-4xl text-ink md:text-5xl">
           {title}
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{subtitle}</p>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">{subtitle}</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button
             asChild

@@ -76,7 +76,7 @@ export default async function ServiceDetailPage({
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
         <Reveal>
           <Breadcrumbs items={crumbs} />
-          <h1 className="max-w-4xl font-heading text-4xl text-ink md:text-5xl">
+          <h1 className="max-w-4xl font-heading text-4xl text-ink md:text-5xl lg:text-6xl">
             {service.h1}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">

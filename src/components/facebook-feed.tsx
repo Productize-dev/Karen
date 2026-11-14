@@ -12,7 +12,7 @@ export function FacebookFeed() {
           <p className="text-sm uppercase tracking-[0.22em] text-gold-dark">
             Social proof
           </p>
-          <h2 className="mt-3 font-heading text-4xl text-ink">
+          <h2 className="mt-3 font-heading text-4xl text-ink md:text-5xl">
             From our Facebook
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">

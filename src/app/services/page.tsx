@@ -31,7 +31,7 @@ export default function ServicesHubPage() {
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
         <Reveal>
           <Breadcrumbs items={crumbs} />
-          <h1 className="max-w-3xl font-heading text-4xl text-ink md:text-5xl">
+          <h1 className="max-w-3xl font-heading text-4xl text-ink md:text-5xl lg:text-6xl">
             {title}
           </h1>
           <p className="mt-4 max-w-3xl text-muted-foreground">

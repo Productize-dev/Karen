@@ -19,7 +19,7 @@ export function FaqSection({
     <section className="py-16 md:py-20">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal className="mb-10 text-center">
-          <h2 className="font-heading text-3xl text-ink md:text-4xl">{title}</h2>
+          <h2 className="font-heading text-3xl text-ink md:text-5xl">{title}</h2>
           {subtitle ? (
             <p className="mt-3 text-muted-foreground">{subtitle}</p>
           ) : null}

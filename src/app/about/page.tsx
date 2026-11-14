@@ -34,7 +34,7 @@ export default function AboutPage() {
         <p className="text-sm uppercase tracking-[0.22em] text-gold-dark">
           Our story
         </p>
-        <h1 className="mt-3 max-w-3xl font-heading text-4xl text-ink md:text-5xl">
+        <h1 className="mt-3 max-w-3xl font-heading text-4xl text-ink md:text-5xl lg:text-6xl">
           Built on trust, detail, and care for every home
         </h1>
         <GoldRule className="mt-5 w-24" delay={0.1} />

@@ -22,16 +22,16 @@ export function HomeHero() {
       </div>
 
       <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-center px-4 py-20">
-        <p className="animate-fade-up font-[family-name:var(--font-script)] text-4xl text-gold-dark md:text-5xl">
+        <p className="animate-fade-up font-[family-name:var(--font-script)] text-5xl text-gold-dark md:text-6xl">
           {business.shortName}
         </p>
-        <p className="animate-fade-up-delay mt-2 text-sm uppercase tracking-[0.28em] text-muted-foreground">
+        <p className="animate-fade-up-delay mt-2 text-sm uppercase tracking-[0.28em] text-muted-foreground md:text-base">
           Cleaning Service
         </p>
-        <h1 className="animate-fade-up-delay-2 mt-6 max-w-3xl font-heading text-4xl leading-tight text-ink md:text-6xl">
+        <h1 className="animate-fade-up-delay-2 mt-6 max-w-3xl font-heading text-5xl leading-tight text-ink md:text-6xl lg:text-7xl">
           Residential & Commercial Cleaning in {business.primaryGeoPhrase}
         </h1>
-        <p className="animate-fade-up-delay-3 mt-5 max-w-xl text-lg text-muted-foreground">
+        <p className="animate-fade-up-delay-3 mt-5 max-w-xl text-lg text-muted-foreground md:text-xl">
           {business.tagline} Detailed, personalized cleaning for homes, Airbnbs,
           and offices across Middle Tennessee.
         </p>

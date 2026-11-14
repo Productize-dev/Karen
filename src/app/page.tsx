@@ -172,7 +172,7 @@ export default function HomePage() {
       <section className="bg-secondary/40 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal className="mb-10 max-w-2xl">
-            <h2 className="font-heading text-4xl text-ink">Our Story</h2>
+            <h2 className="font-heading text-4xl text-ink md:text-5xl">Our Story</h2>
             <GoldRule className="mt-4 w-20" delay={0.1} />
             <p className="mt-5 text-muted-foreground">{business.meaning}</p>
           </Reveal>
@@ -181,7 +181,7 @@ export default function HomePage() {
               <StaggerItem key={value.title}>
                 <div className="group h-full border border-transparent border-l-gold/40 bg-transparent py-2 pl-5 transition duration-300 hover:border-l-gold md:border md:border-border md:bg-card md:p-6 md:pl-6 md:hover:border-gold/40 md:hover:shadow-[0_16px_40px_-30px_rgba(197,163,90,0.55)]">
                   <value.icon className="size-7 text-gold transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
-                  <h3 className="mt-4 font-heading text-2xl text-ink">
+                  <h3 className="mt-4 font-heading text-2xl text-ink md:text-3xl">
                     {value.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -203,7 +203,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="font-heading text-4xl text-ink">
+              <h2 className="font-heading text-4xl text-ink md:text-5xl">
                 Residential & Commercial Cleaning
               </h2>
               <p className="mt-3 max-w-2xl text-muted-foreground">
@@ -232,7 +232,7 @@ export default function HomePage() {
         </div>
         <div className="relative mx-auto max-w-6xl px-4">
           <Reveal>
-            <h2 className="text-center font-heading text-4xl text-ink">
+            <h2 className="text-center font-heading text-4xl text-ink md:text-5xl">
               Getting started is simple
             </h2>
             <GoldRule className="mx-auto mt-4 w-24" delay={0.1} />
@@ -261,7 +261,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal className="mb-10 text-center">
-            <h2 className="font-heading text-4xl text-ink">
+            <h2 className="font-heading text-4xl text-ink md:text-5xl">
               Trusted by neighbors across Middle Tennessee
             </h2>
             <p className="mt-3 text-muted-foreground">
@@ -310,7 +310,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="font-heading text-4xl text-ink">
+              <h2 className="font-heading text-4xl text-ink md:text-5xl">
                 Cleaning across Middle Tennessee
               </h2>
               <p className="mt-3 max-w-2xl text-muted-foreground">
