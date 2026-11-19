@@ -45,6 +45,10 @@
   --color-gold-dark: var(--gold-dark);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
+  --color-cranberry: var(--cranberry);
+  --color-maple: var(--maple);
+  --color-sage: var(--sage);
+  --color-harvest: var(--harvest);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -55,44 +59,48 @@
 }
 
 :root {
-  /* Matched to Grace Living logo background */
-  --cream: #fdf7e8;
-  --ink: #0a0a0a;
-  --gold: #c5a35a;
-  --gold-light: #e8d5a3;
-  --gold-dark: #9a7b3c;
-  --background: #fdf7e8;
-  --foreground: #0a0a0a;
-  --card: #fdf7e8;
-  --card-foreground: #0a0a0a;
-  --popover: #fdf7e8;
-  --popover-foreground: #0a0a0a;
-  --primary: #0a0a0a;
-  --primary-foreground: #fdf7e8;
-  --secondary: #f3ebda;
-  --secondary-foreground: #0a0a0a;
-  --muted: #f3ebda;
-  --muted-foreground: #5c574e;
-  --accent: #c5a35a;
-  --accent-foreground: #0a0a0a;
+  /* Thanksgiving harvest palette — layered on Grace Living gold */
+  --cream: #faf3e6;
+  --ink: #1a120e;
+  --gold: #c9893a;
+  --gold-light: #e8c48a;
+  --gold-dark: #8f5a28;
+  --cranberry: #8f2f2b;
+  --maple: #c45c26;
+  --sage: #5c6b4a;
+  --harvest: #d4a04a;
+  --background: #faf3e6;
+  --foreground: #1a120e;
+  --card: #fff8ee;
+  --card-foreground: #1a120e;
+  --popover: #fff8ee;
+  --popover-foreground: #1a120e;
+  --primary: #1a120e;
+  --primary-foreground: #faf3e6;
+  --secondary: #f0e2cf;
+  --secondary-foreground: #1a120e;
+  --muted: #efe0cb;
+  --muted-foreground: #6a5748;
+  --accent: #c9893a;
+  --accent-foreground: #1a120e;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e6dfd2;
-  --input: #e6dfd2;
-  --ring: #c5a35a;
-  --chart-1: #c5a35a;
-  --chart-2: #9a7b3c;
-  --chart-3: #0a0a0a;
-  --chart-4: #e8d5a3;
-  --chart-5: #5c574e;
+  --border: #e4d2bc;
+  --input: #e4d2bc;
+  --ring: #c9893a;
+  --chart-1: #c9893a;
+  --chart-2: #8f2f2b;
+  --chart-3: #5c6b4a;
+  --chart-4: #c45c26;
+  --chart-5: #8f5a28;
   --radius: 0.5rem;
-  --sidebar: #fdf7e8;
-  --sidebar-foreground: #0a0a0a;
-  --sidebar-primary: #0a0a0a;
-  --sidebar-primary-foreground: #fdf7e8;
-  --sidebar-accent: #f3ebda;
-  --sidebar-accent-foreground: #0a0a0a;
-  --sidebar-border: #e6dfd2;
-  --sidebar-ring: #c5a35a;
+  --sidebar: #faf3e6;
+  --sidebar-foreground: #1a120e;
+  --sidebar-primary: #1a120e;
+  --sidebar-primary-foreground: #faf3e6;
+  --sidebar-accent: #f0e2cf;
+  --sidebar-accent-foreground: #1a120e;
+  --sidebar-border: #e4d2bc;
+  --sidebar-ring: #c9893a;
 }
 
 @layer base {
@@ -116,26 +124,16 @@
 }
 
 @utility text-gold-gradient {
-  background-image: linear-gradient(135deg, #9a7b3c 0%, #c5a35a 45%, #e8d5a3 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--cranberry);
 }
 
 @utility bg-gold-gradient {
-  background-image: linear-gradient(135deg, #9a7b3c 0%, #c5a35a 50%, #e8d5a3 100%);
+  background-color: var(--cranberry);
 }
 
 @utility gold-rule {
-  height: 1px;
-  background-image: linear-gradient(
-    90deg,
-    transparent,
-    #c5a35a 20%,
-    #e8d5a3 50%,
-    #c5a35a 80%,
-    transparent
-  );
+  height: 2px;
+  background-color: var(--maple);
 }
 
 @keyframes fade-up {

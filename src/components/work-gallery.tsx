@@ -8,7 +8,7 @@ export function WorkGallery() {
     <section className="bg-secondary/50 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal className="mb-10 max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.22em] text-gold-dark">
+          <p className="text-sm uppercase tracking-[0.22em] text-maple">
             Our work
           </p>
           <h2 className="mt-3 font-heading text-4xl text-ink md:text-5xl">

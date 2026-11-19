@@ -35,19 +35,12 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   ...createMetadata({
     title: `Residential & Commercial Cleaning in ${business.primaryGeoPhrase} | ${business.shortName}`,
-    description: `${business.description} Call ${business.phoneDisplay} for a personalized quote.`,
+    description: `${business.description} Call ${business.phoneDisplay} for a free estimate — 10% off your first visit.`,
     path: "/",
   }),
   metadataBase: new URL(siteConfig.url),
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-  },
+  // Icons come from App Router files: app/favicon.ico, app/icon.png, app/apple-icon.png
+  // (avoids metadataBase pointing favicons at the wrong localhost port)
   manifest: "/site.webmanifest",
 };
 
@@ -57,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${dmSans.variable} ${cormorant.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-ink">
+      <body className="flex min-h-full flex-col bg-cream text-ink">
         <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <SiteHeader />
         <main className="flex-1">{children}</main>

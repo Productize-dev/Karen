@@ -111,7 +111,7 @@ function Slider({ pair }: { pair: BeforeAfterPair }) {
       <span className="absolute top-3 left-3 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-ink shadow-sm">
         Before
       </span>
-      <span className="absolute top-3 right-3 rounded-full bg-gold-gradient px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-ink shadow-sm">
+      <span className="absolute top-3 right-3 rounded-full bg-cranberry px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-cream shadow-sm">
         After
       </span>
     </div>
@@ -127,7 +127,7 @@ export function BeforeAfterSection() {
     <section className="bg-cream py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal className="mb-10 text-center">
-          <p className="text-sm uppercase tracking-[0.22em] text-gold-dark">
+          <p className="text-sm uppercase tracking-[0.22em] text-maple">
             Real results
           </p>
           <h2 className="mt-3 font-heading text-4xl text-ink md:text-5xl">
@@ -149,8 +149,8 @@ export function BeforeAfterSection() {
               className={cn(
                 "rounded-full border px-4 py-2 text-sm transition",
                 activeId === pair.id
-                  ? "border-gold bg-gold/15 text-gold-dark"
-                  : "border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-ink"
+                  ? "border-cranberry bg-cranberry/10 text-cranberry"
+                  : "border-border bg-card text-muted-foreground hover:border-maple/50 hover:text-ink"
               )}
             >
               {pair.label}

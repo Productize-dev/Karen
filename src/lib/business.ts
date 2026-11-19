@@ -40,8 +40,11 @@ export const business = {
     "This business is more than a job. It represents effort, independence, growth, and the opportunity to build something lasting. We take pride in giving clients peace of mind and making a real difference in their homes.",
   differentiator:
     "Our commitment to quality, attention to detail, and personalized care. We don't just clean houses — we strive to deliver trust, peace of mind, and an excellent experience for every client.",
+  estimateCta: "Free Estimate",
+  firstVisitOffer: "10% OFF",
+  firstVisitOfferDetail: "first visit",
   pricingNote:
-    "We prefer custom quotes. Pricing depends on property size, condition, and the services you need.",
+    "Fill out the form for a free estimate. Pricing depends on property size, condition, and the services you need — plus 10% off your first visit.",
 } as const;
 
 export const siteConfig = {
@@ -52,9 +55,9 @@ export const siteConfig = {
 
 export const homeFaqs = [
   {
-    question: "How do I get a price for cleaning?",
+    question: "How do I get a free estimate?",
     answer:
-      "We provide personalized quotes. Pricing depends on the size of your property, its condition, and the services you need. Call, text, or submit our online quote form and we'll follow up promptly.",
+      "Request a free estimate online, or call or text us. Pricing depends on the size of your property, its condition, and the services you need. New clients also get 10% off their first visit.",
   },
   {
     question: "What areas do you serve?",
@@ -63,7 +66,7 @@ export const homeFaqs = [
   {
     question: "How do I book a cleaning?",
     answer:
-      "You can book by phone call, text message, or by submitting the quote request form on our website. Appointments are subject to availability.",
+      "You can book by phone call, text message, or by submitting the free estimate form on our website. Appointments are subject to availability.",
   },
   {
     question: "What services do you offer most often?",

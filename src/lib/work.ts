@@ -106,13 +106,17 @@ export const teamImage = {
   alt: "Clean modern kitchen after Grace Living service",
 } as const;
 
+export const featuredVideo = {
+  src: "/work/bedroom-transform.mp4",
+  poster: "/work/bedroom-transform-poster.jpg",
+  title: "Bedroom transformation",
+  description:
+    "Watch a real Grace Living clean — clutter cleared, surfaces refreshed, and the room ready to enjoy again.",
+} as const;
+
 export const facebookPosts = [
   {
     href: "https://www.facebook.com/permalink.php?story_fbid=pfbid0EWaUZYviZaEZGhHZ5Dj7W13vCEjCb9vYpBE75kop6RAEX7wwVCnLZvyEUCr6WjLul&id=100076133720244",
-    height: 329,
-  },
-  {
-    href: "https://www.facebook.com/permalink.php?story_fbid=pfbid02Tmk4kUz9oL5t88aShzsCQtTwGL6pVXXXdQutdBTSz5QoV8XtHwxB7thSJRSQrzdzl&id=100076133720244",
     height: 329,
   },
   {

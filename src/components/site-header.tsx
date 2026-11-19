@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { business } from "@/lib/business";
+import { thanksgiving } from "@/lib/seasonal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +13,6 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
-  { href: "/quote", label: "Get a Quote" },
 ];
 
 function PhoneIcon({ className }: { className?: string }) {
@@ -89,13 +89,25 @@ export function SiteHeader() {
         scrolled && "shadow-[0_12px_40px_-20px_rgba(154,123,60,0.25)]"
       )}
     >
-      <div className="border-b border-gold/25 bg-secondary text-ink">
+      {thanksgiving.active ? (
+        <div className="border-b border-cranberry/40 bg-cranberry text-cream">
+          <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-2.5 text-center text-xs sm:text-sm">
+            <p className="hidden font-medium tracking-wide sm:block">
+              {thanksgiving.banner}
+            </p>
+            <p className="font-medium tracking-wide sm:hidden">
+              {thanksgiving.bannerShort}
+            </p>
+          </div>
+        </div>
+      ) : null}
+      <div className="border-b border-maple/25 bg-secondary text-ink">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 text-xs sm:text-sm">
           <a
             href={business.phoneHref}
-            className="inline-flex items-center gap-2 transition hover:text-gold-dark"
+            className="inline-flex items-center gap-2 transition hover:text-cranberry"
           >
-            <PhoneIcon className="size-3.5 text-gold" />
+            <PhoneIcon className="size-3.5 text-maple" />
             {business.phoneDisplay}
           </a>
           <p className="hidden text-muted-foreground sm:block">
@@ -107,7 +119,7 @@ export function SiteHeader() {
                 href={business.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden text-muted-foreground transition hover:text-gold-dark sm:inline"
+                className="hidden text-muted-foreground transition hover:text-cranberry sm:inline"
               >
                 Facebook
               </a>
@@ -117,14 +129,14 @@ export function SiteHeader() {
                 href={business.social.google}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden text-muted-foreground transition hover:text-gold-dark md:inline"
+                className="hidden text-muted-foreground transition hover:text-cranberry md:inline"
               >
                 Google
               </a>
             ) : null}
             <a
               href={business.emailHref}
-              className="truncate transition hover:text-gold-dark"
+              className="truncate transition hover:text-cranberry"
             >
               {business.email}
             </a>
@@ -174,9 +186,9 @@ export function SiteHeader() {
           })}
           <Button
             asChild
-            className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_8px_24px_-12px_rgba(197,163,90,0.9)]"
+            className="bg-cranberry text-cream transition hover:bg-maple"
           >
-            <Link href="/quote">Get a Quote</Link>
+            <Link href="/quote">Free Estimate</Link>
           </Button>
         </nav>
 
@@ -218,10 +230,10 @@ export function SiteHeader() {
             })}
             <Link
               href="/quote"
-              className="mt-2 rounded-md bg-gold-gradient px-3 py-2.5 text-center text-sm font-semibold text-ink transition hover:opacity-90"
+              className="mt-2 rounded-md bg-cranberry px-3 py-2.5 text-center text-sm font-semibold text-cream transition hover:bg-maple"
               onClick={() => setOpen(false)}
             >
-              Get a Quote
+              Free Estimate
             </Link>
           </div>
         </nav>

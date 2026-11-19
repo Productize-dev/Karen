@@ -83,8 +83,8 @@ export function QuoteForm() {
         <CheckCircle2 className="mx-auto size-10 text-gold" />
         <h2 className="mt-4 font-heading text-2xl text-ink">Thank you</h2>
         <p className="mt-3 text-muted-foreground">
-          Your quote request was sent. We&apos;ll follow up soon. Need faster
-          help? Call or text{" "}
+          Your free estimate request was sent. We&apos;ll follow up soon. Need
+          faster help? Call or text{" "}
           <a href={business.phoneHref} className="font-medium text-gold-dark">
             {business.phoneDisplay}
           </a>
@@ -201,7 +201,7 @@ export function QuoteForm() {
         type="submit"
         size="lg"
         disabled={submitting}
-        className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)] disabled:opacity-70"
+        className="bg-cranberry text-cream transition hover:bg-maple disabled:opacity-70"
       >
         {submitting ? (
           <span className="inline-flex items-center gap-2">
@@ -209,7 +209,7 @@ export function QuoteForm() {
             Sending request…
           </span>
         ) : (
-          "Request personalized quote"
+          "Get my free estimate"
         )}
       </Button>
     </form>

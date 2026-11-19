@@ -97,9 +97,9 @@ export default async function AreaDetailPage({
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Button
               asChild
-              className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
+              className="bg-cranberry text-cream transition hover:bg-maple"
             >
-              <Link href="/quote">Request a Quote</Link>
+              <Link href="/quote">Free Estimate</Link>
             </Button>
             <Button asChild variant="outline">
               <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
@@ -155,7 +155,7 @@ export default async function AreaDetailPage({
 
       <CtaBand
         title={`Need cleaning in ${city.name}?`}
-        subtitle={`Call ${business.phoneDisplay} to book cleaning for your ${city.name} property.`}
+        subtitle={`Get a free estimate for your ${city.name} property — plus 10% off your first visit. Call ${business.phoneDisplay}.`}
       />
     </>
   );

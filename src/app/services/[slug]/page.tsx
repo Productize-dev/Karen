@@ -85,9 +85,9 @@ export default async function ServiceDetailPage({
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Button
               asChild
-              className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
+              className="bg-cranberry text-cream transition hover:bg-maple"
             >
-              <Link href="/quote">Request a Quote</Link>
+              <Link href="/quote">Free Estimate</Link>
             </Button>
             <Button asChild variant="outline">
               <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
@@ -172,8 +172,8 @@ export default async function ServiceDetailPage({
       </section>
 
       <CtaBand
-        title={`Ready to book ${service.shortName.toLowerCase()}?`}
-        subtitle={`Call ${business.phoneDisplay} to book.`}
+        title={`Ready for ${service.shortName.toLowerCase()}?`}
+        subtitle={`Request a free estimate — plus 10% off your first visit. Call ${business.phoneDisplay}.`}
       />
     </>
   );

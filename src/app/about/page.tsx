@@ -68,9 +68,9 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
                 asChild
-                className="bg-gold-gradient text-ink transition hover:opacity-90 hover:shadow-[0_10px_28px_-12px_rgba(197,163,90,0.9)]"
+                className="bg-cranberry text-cream transition hover:bg-maple"
               >
-                <Link href="/quote">Request a Quote</Link>
+                <Link href="/quote">Free Estimate</Link>
               </Button>
               <Button asChild variant="outline">
                 <a href={business.phoneHref}>Call {business.phoneDisplay}</a>
@@ -111,7 +111,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="Let’s care for your space"
-        subtitle={`Call ${business.phoneDisplay} to book today.`}
+        subtitle={`Request a free estimate — plus 10% off your first visit. Call ${business.phoneDisplay}.`}
       />
     </>
   );

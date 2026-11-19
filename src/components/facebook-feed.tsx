@@ -9,19 +9,19 @@ export function FacebookFeed() {
     <section className="bg-cream py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal className="mb-10 text-center">
-          <p className="text-sm uppercase tracking-[0.22em] text-gold-dark">
+          <p className="text-sm uppercase tracking-[0.22em] text-maple">
             Social proof
           </p>
           <h2 className="mt-3 font-heading text-4xl text-ink md:text-5xl">
             From our Facebook
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            Recent updates, tips, and work from Grace Living Cleaning Services.
+            Recent updates and tips from Grace Living Cleaning Services.
           </p>
           <GoldRule className="mx-auto mt-5 w-24" delay={0.1} />
         </Reveal>
 
-        <Stagger className="grid gap-6 lg:grid-cols-3">
+        <Stagger className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {facebookPosts.map((post) => {
             const src = `https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(post.href)}&show_text=true&width=500`;
             return (

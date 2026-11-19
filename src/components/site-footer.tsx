@@ -1,14 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { business } from "@/lib/business";
+import { thanksgiving } from "@/lib/seasonal";
 import { services } from "@/lib/services";
 import { getTopCities } from "@/lib/areas";
-
 export function SiteFooter() {
   const topCities = getTopCities(10);
 
   return (
     <footer className="mt-auto border-t border-border bg-secondary text-ink">
+      <div className="h-1 bg-cranberry" aria-hidden />
+      {thanksgiving.active ? (
+        <p className="border-b border-border bg-cream px-4 py-3 text-center text-sm text-maple">
+          {thanksgiving.footerNote}
+        </p>
+      ) : null}
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
           <Image
@@ -27,7 +33,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="font-heading text-lg text-gold-dark">Services</h2>
+          <h2 className="font-heading text-lg text-cranberry">Services</h2>
           <div className="gold-rule mt-2 mb-4 w-16" />
           <ul className="space-y-2 text-sm">
             {services.map((service) => (
@@ -44,7 +50,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="font-heading text-lg text-gold-dark">Top Areas</h2>
+          <h2 className="font-heading text-lg text-cranberry">Top Areas</h2>
           <div className="gold-rule mt-2 mb-4 w-16" />
           <ul className="space-y-2 text-sm">
             {topCities.map((city) => (
@@ -69,7 +75,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="font-heading text-lg text-gold-dark">Contact</h2>
+          <h2 className="font-heading text-lg text-cranberry">Contact</h2>
           <div className="gold-rule mt-2 mb-4 w-16" />
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li>
@@ -101,7 +107,7 @@ export function SiteFooter() {
                 href="/quote"
                 className="link-underline text-gold-dark transition hover:link-underline-hover"
               >
-                Request a custom quote
+                Free Estimate — 10% off first visit
               </Link>
             </li>
             {business.social.facebook ? (

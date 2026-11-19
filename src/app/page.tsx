@@ -5,10 +5,12 @@ import dynamic from "next/dynamic";
 import { CtaBand } from "@/components/cta-band";
 import { FacebookFeed } from "@/components/facebook-feed";
 import { FaqSection } from "@/components/faq-section";
+import { FeaturedVideo } from "@/components/featured-video";
 import { HomeHero } from "@/components/home-hero";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceCards } from "@/components/service-cards";
 import { AreaLinks } from "@/components/area-links";
+import { ThanksgivingSection } from "@/components/thanksgiving-section";
 import { WorkGallery } from "@/components/work-gallery";
 import { Button } from "@/components/ui/button";
 import { CountUp, GoldRule, Reveal, Stagger, StaggerItem } from "@/components/motion";
@@ -46,8 +48,8 @@ export const metadata = createMetadata({
 
 const processSteps = [
   {
-    title: "Call us",
-    body: "Call or text to share your property size, condition, and the services you need.",
+    title: "Free estimate",
+    body: "Call, text, or fill out the form — get a free estimate, plus 10% off your first visit.",
   },
   {
     title: "Personalized plan",
@@ -105,7 +107,7 @@ export default function HomePage() {
       <section className="border-b border-border bg-secondary/50">
         <Stagger className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { label: "Personalized quotes", display: "Custom" as const },
+            { label: "First visit savings", display: "10% OFF" as const },
             {
               label: "Cities & communities",
               display: "count" as const,
@@ -116,7 +118,7 @@ export default function HomePage() {
             { label: "Home base", display: "Franklin" as const },
           ].map((stat) => (
             <StaggerItem key={stat.label} className="text-center sm:text-left">
-              <p className="font-heading text-3xl text-gold-dark md:text-4xl">
+              <p className="font-heading text-3xl text-cranberry md:text-4xl">
                 {stat.display === "count" ? (
                   <CountUp value={stat.value!} suffix={stat.suffix} />
                 ) : (
@@ -132,7 +134,7 @@ export default function HomePage() {
       <section className="py-16 md:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.22em] text-gold-dark">
+            <p className="text-sm uppercase tracking-[0.22em] text-maple">
               A team you can count on
             </p>
             <h2 className="mt-3 font-heading text-4xl text-ink md:text-5xl">
@@ -149,7 +151,7 @@ export default function HomePage() {
               {checklist.map((item) => (
                 <StaggerItem key={item}>
                   <div className="flex gap-3 text-sm text-ink">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-gold" />
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-cranberry" />
                     {item}
                   </div>
                 </StaggerItem>
@@ -180,7 +182,7 @@ export default function HomePage() {
             {values.map((value) => (
               <StaggerItem key={value.title}>
                 <div className="group h-full border border-transparent border-l-gold/40 bg-transparent py-2 pl-5 transition duration-300 hover:border-l-gold md:border md:border-border md:bg-card md:p-6 md:pl-6 md:hover:border-gold/40 md:hover:shadow-[0_16px_40px_-30px_rgba(197,163,90,0.55)]">
-                  <value.icon className="size-7 text-gold transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
+                  <value.icon className="size-7 text-cranberry transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
                   <h3 className="mt-4 font-heading text-2xl text-ink md:text-3xl">
                     {value.title}
                   </h3>
@@ -223,13 +225,13 @@ export default function HomePage() {
       </section>
 
       <BeforeAfterSection />
+      <ThanksgivingSection />
       <WorkGallery />
+      <FeaturedVideo />
       <FacebookFeed />
 
       <section className="relative overflow-hidden border-y border-border bg-secondary/60 py-16 text-ink md:py-20">
-        <div className="pointer-events-none absolute inset-0 opacity-40">
-          <div className="absolute left-1/2 top-0 h-px w-[min(90%,720px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
-        </div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-maple/50" />
         <div className="relative mx-auto max-w-6xl px-4">
           <Reveal>
             <h2 className="text-center font-heading text-4xl text-ink md:text-5xl">
@@ -238,11 +240,11 @@ export default function HomePage() {
             <GoldRule className="mx-auto mt-4 w-24" delay={0.1} />
           </Reveal>
           <div className="relative mt-12">
-            <div className="pointer-events-none absolute left-[16%] right-[16%] top-7 hidden h-px bg-gradient-to-r from-gold/20 via-gold/50 to-gold/20 md:block" />
+            <div className="pointer-events-none absolute left-[16%] right-[16%] top-7 hidden h-px bg-maple/40 md:block" />
             <Stagger className="grid gap-8 md:grid-cols-3">
               {processSteps.map((step, index) => (
                 <StaggerItem key={step.title} className="text-center">
-                  <p className="relative z-10 mx-auto inline-flex size-12 items-center justify-center rounded-full border border-gold/30 bg-cream font-[family-name:var(--font-script)] text-3xl text-gold-dark shadow-sm">
+                  <p className="relative z-10 mx-auto inline-flex size-12 items-center justify-center rounded-full border border-maple/35 bg-cream font-[family-name:var(--font-script)] text-3xl text-cranberry shadow-sm">
                     {index + 1}
                   </p>
                   <h3 className="mt-4 font-heading text-2xl text-ink">

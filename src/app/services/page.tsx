@@ -37,7 +37,7 @@ export default function ServicesHubPage() {
           <p className="mt-4 max-w-3xl text-muted-foreground">
             Homes and businesses in {business.primaryGeoPhrase} — routine
             maintenance, deep cleans, Airbnb turnovers, move-in / move-out, and
-            office cleaning. Personalized quotes for every property.
+            office cleaning. Free estimates for every property — 10% off your first visit.
           </p>
           <GoldRule className="mt-6 mb-10 w-24" delay={0.1} />
         </Reveal>
